@@ -26,20 +26,21 @@ public class AquaSimApplication
         System.out.println("Omae wa mou shindeiru.");
 
         // CONSTRUCT OBJECTS NEEDED FOR THE AQUARIUM SIMULATION.
-
+        Random generator = new Random();
+        //int randNum = generator.nextInt(10);
 
         // Construct the aquarium.  Specify its dimensions when creating it.
         Aquarium aqua;                 // create reference to an Aquarium ...
-        aqua = new Aquarium(600, 480); // ... object that has now been created
+        aqua = new Aquarium(2000, 1000); // ... object that has now been created
 
         // Construct fish and add them to the aquarium.
         //      CODE MISSING HERE!
         //Add AquaFish to aquarium.
-        AquaFish black = new AquaFish(aqua);
+        AquaFish black = new AquaFish(aqua, Color.BLACK);
             aqua.add(black);
-        AquaFish nig = new AquaFish(aqua);
+        AquaFish nig = new AquaFish(aqua, Color.YELLOW);
             aqua.add(nig);
-        AquaFish ga = new AquaFish(aqua);
+        AquaFish ga = new AquaFish(aqua, Color.RED);
             aqua.add(ga);
         
                 
@@ -63,11 +64,21 @@ public class AquaSimApplication
         // RUN THE AQUARIUM SIMULATION.
 
         // Make the fish move and redisplay.
-        //      CODE MISSING HERE!
+        //      CODE MISSING HERE
+        for (int i=0; i<9999999; i++)
+        {
+        if (black.atWall())
+            black.changeDir();
         black.moveForward();
+        if (nig.atWall())
+            nig.changeDir();
         nig.moveForward();
+        if (ga.atWall())
+            ga.changeDir();
         ga.moveForward();
         userInterface.showAquarium();
+        }
+
         // WRAP UP.
 
         // Remind user how to quit application.
