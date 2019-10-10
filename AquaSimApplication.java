@@ -21,12 +21,14 @@ public class AquaSimApplication
      *  This is the main function.  It executes the program.
      *  @param    String args[] is never used
      **/
+     private static Random generator;
+     
     public static void main(String args[])
     {
         System.out.println("Omae wa mou shindeiru.");
 
         // CONSTRUCT OBJECTS NEEDED FOR THE AQUARIUM SIMULATION.
-        Random generator = new Random();
+        generator = new Random();
         //int randNum = generator.nextInt(10);
 
         // Construct the aquarium.  Specify its dimensions when creating it.
@@ -85,5 +87,23 @@ public class AquaSimApplication
         userInterface.println ("Close GUI display window to quit.");
 
     }//end main
+    
+    public static Color getColor()
+    {
+        int randNum = generator.nextInt(5);
+        if (randNum==0)
+            return Color.RED;
+        else if (randNum==1)
+            return Color.BLUE;
+        else if (randNum==2)
+            return Color.GREEN;
+        else if (randNum==3)
+            return Color.YELLOW;
+        else if (randNum==4)
+            return Color.ORANGE;
+        else 
+            return Color.MAGENTA;
+         
+    }
 
 }//end class
